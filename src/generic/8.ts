@@ -1,24 +1,21 @@
-/*
-  У вас є тип Form, який містить інформацію про форму, включаючи поле errors. 
-  Ви хочете створити новий тип Params, який включає всі поля з Form, крім errors.
-*/
+/**
+ * У вас є тип Form, який містить інформацію про форму, включаючи поле errors.
+ *   Ви хочете створити новий тип Params, який включає всі поля з Form, крім errors.
+ *
+ * @format
+ */
 
-type Errors = {
-  email?: string[];
-  firstName?: string[];
-  lastName?: string[];
-  phone?: string[];
+export enum UserRole {
+  admin = "admin",
+  editor = "editor",
+  guest = "guest",
+}
+
+// Замініть наступний код на версію за допомогою Record
+const RoleDescription: Record<UserRole, string> = {
+  [UserRole.admin]: "Admin User",
+  [UserRole.editor]: "Editor User",
+  [UserRole.guest]: "Guest User",
 };
-
-type Form = {
-  email: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  phone: string | null;
-  errors: Errors;
-};
-
-// Реалізуйте Params так, щоб унеможливити поле 'errors' з типу Form
-type Params = Form;
 
 export {};
